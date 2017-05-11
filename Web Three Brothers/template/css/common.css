@@ -1,0 +1,93 @@
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, address,img, strong,tt,center, dl, dt, dd, ol, ul, li, form, label,table, tbody, tfoot, thead, tr, th, td,footer, header,  menu, nav, section{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	vertical-align:baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display:block;
+}
+body {
+	background-color:#429191;
+	color:#429191;
+	display:table;
+	width:100%;
+}
+
+ol, ul {
+	list-style:none;
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+input {
+	border:none;
+	background:none;
+	outline:none;
+	margin:0;
+	padding:0;
+}
+
+
+input {
+	width: 218px;
+	background: #ffffff;
+	height:26px;
+	text-transform:uppercase;
+	color:#6a6868;
+	display:block;
+	font: italic 12px/14px Arial, Helvetica, sans-serif;
+}
+label {
+	font-size:16px;
+	line-height:24px;
+	font-family: 'geoslab703_md_btmedium';
+	color:#cfcece;
+	text-transform:uppercase;
+}
+textarea {
+	border:none;
+	outline:none;
+	width:301px;
+	height:123px;
+}
+address {
+	font-style:normal;
+}
+input:focus {
+	color:#30F;
+}
+a:hover {
+	text-decoration:underline;
+}
+a {
+	text-decoration:none;
+}
+h1 {
+	color:#3a3939;
+	font-family: 'geoslab703_md_btbold';
+	font-size:41px;
+	line-height:29px;
+}
+h2 {
+	font-size:19px;
+	color:#fff;
+	font-family: 'geoslab703_md_btmedium';
+}
+h4 {
+	font-size:9px;
+	color:#7c7c7c;
+}
+.slides_container {
+	width:722px;
+	display:none;
+}
+.slides_container .imgeslider {
+	width:722px;
+	height:328px;
+	display:block;
+}

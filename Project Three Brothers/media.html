@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Three Brothers Clothing Company</title>
+	<link rel="stylesheet" type="text/css" href="template/css/style.css"  media="screen" />
+	<link rel="stylesheet" type="text/css" href="template/css/common.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="template/css/button.css" media="screen" />
+	<script src="template/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="template/js/slides.min.jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.slides').slides({
+				preload: true,
+				generatePagination: true,
+				play:3000
+			});
+		});
+	</script>
+</head>
+	<body>
+<!--Wrapper-->
+<div id="wrapper">
+      <!--Page-->
+      <div class="page shadow">
+    <!--Header-->
+    <div id="header">
+        <div class="primary-section">
+        <div class="logo"><img height = "75px" width = "220px" src="template/images/logo.jpeg" /></div>
+        <div class="header-aside">
+        <ul>
+		
+		if ($_SESSION[email]=="") {
+			<li class='border'><a href='media.php?module=login' class='log'> login </a></li>
+            <li><a href='media.php?module=register' class='user'>register</a></li>
+		}
+		else {
+			<li class='border'><a href='logout.php' class='log'> Logout </a></li>
+		}
+		
+        </ul>
+        </div>
+        </div>
+        <div class="nav-section">
+        <ul class="navigation">
+              <li class="home"><a href="media.php?module=home" class="home">Home </a></li>
+              <li><a href="media.php?module=daftar_barang">Daftar Barang </a></li>
+			  
+			  if($_SESSION[email] !=""){
+				<li><a href='media.php?module=keranjangbelanja'>Keranjang Belanja </a></li>
+			  }	  
+        </ul>
+        </div>
+    <!--Header-->
+    <!--Content-->
+    <div id="content">
+		if ($_GET[module]!='home') {
+			if ($_SESSION[email] !="") {
+				<div class='sidebar'>
+				<div class='latest-product'>
+                <h2>Menu Anda</h2>
+                <ul class='info'>
+				<img src='template/images/profil.png' />
+				<li><a href='media.php?module=profilKustomer'>Profil</a></li>
+				<li><a href='media.php?module=keranjangbelanja'>Keranjang Belanja<img src='template/images/cart.gif' /></a></li>
+				<div style='color:#E1473D;border:1px solid #E78686;padding:10px;background:#FFE1E1;'>
+
+				</div>
+				<br>
+
+				<h2>Kategori Produk</h2>
+				<ul class='info'>
+				$kategori=mysql_query("select nama_kategori, kategori.id_kategori,
+                             count(produk.id_produk) as jml
+                             from kategori left join produk
+                             on produk.id_kategori=kategori.id_kategori
+                             group by nama_kategori");
+				$no=1;
+				while($k=mysql_fetch_array($kategori)){
+					<li><a href='media.php?module=detailkategori&id=$k[id_kategori]'> $k[nama_kategori] ($k[jml])</a></li>
+					$no++;
+				}
+				</div>
+				</ul>
+				</div> 
+			}else{
+				<div class='sidebar'>
+				<div class='latest-product'>
+				<h2>Kategori Produk</h2>
+				<ul class='info'>
+                $kategori=mysql_query("select nama_kategori, kategori.id_kategori,
+                               count(produk.id_produk) as jml
+                               from kategori left join produk
+                               on produk.id_kategori=kategori.id_kategori
+                               group by nama_kategori");
+				$no=1;
+				while($k=mysql_fetch_array($kategori)){
+					<li><a href='media.php?module=detailkategori&id=$k[id_kategori]'> $k[nama_kategori] ($k[jml])</a></li>
+					$no++;
+				}
+				</div>
+				</div>
+			}
+
+			<div class="content-right">
+
+			</div>
+		}else{
+				if ($_SESSION[email] !="") {
+					<div class='sidebar'>
+					<div class='latest-product'>
+					<h2>Menu Anda</h2>
+					<ul class='info'>
+					<img src='template/images/profil.png' />
+					<li><a href='media.php?module=profilKustomer'>Profil</a></li>
+					<li><a href='media.php?module=keranjangbelanja'>Keranjang Belanja<img src='template/images/cart.gif' /></a></li>
+					<div style='color:#E1473D;border:1px solid #E78686;padding:10px;background:#FFE1E1;'>
+
+					</div>
+					<br>
+					<h2>Kategori Produk</h2>
+					<ul class='info'>
+					$kategori=mysql_query("select nama_kategori, kategori.id_kategori,
+                             count(produk.id_produk) as jml
+                             from kategori left join produk
+                             on produk.id_kategori=kategori.id_kategori
+                             group by nama_kategori");
+					$no=1;
+					while($k=mysql_fetch_array($kategori)){
+						<li><a href='media.php?module=detailkategori&id=$k[id_kategori]'> $k[nama_kategori] ($k[jml])</a></li>
+						$no++;
+					}
+					</div>
+					</ul>
+					</div>
+					<div class='content-right'>
+
+					</div>
+				}else{
+
+				}
+		}
+	</div>
+	</div>
+    <!-- Content-->
+	</div>
+    <!--Footer-->
+    <div id="footer">
+    <div class="footer-top">
+    <div class="page">
+    <div class="footer-bottom">
+    <center><strong><p>Three Brothers Clothing Company</p></strong></center>
+    <div class="social-icon">
+    <ul>
+    </div>
+    </div>
+	</div>
+    <!--Footer-->
+    </div>
+<!--Wrapper-->
+</body>
+</html>
